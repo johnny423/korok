@@ -23,8 +23,7 @@ repos:
         types: [ python ]
       - id: mypy
         name: mypy
-        entry: "./run-mypy"
-        language: python
+        entry: mypy
+        args: ["--ignore-missing-imports"]  # Customize mypy arguments as needed
+        language: system
         types: [ python ]
-        require_serial: true
-        verbose: true
