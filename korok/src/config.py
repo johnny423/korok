@@ -38,6 +38,7 @@ class Server(BaseModel):
     OPENAPI_URL: str = "/openapi.json"
     REDOC_URL: str = "/redoc"
     OPENAPI_PREFIX: str = ""
+    DEBUG: bool = True
 
 
 class Database(BaseModel):
