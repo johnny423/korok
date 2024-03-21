@@ -23,6 +23,6 @@ repos:
         types: [ python ]
       - id: mypy
         name: mypy
-        entry: poetry run mypy korok/src/
+        entry: mypy korok/src/
         language: system
         types: [ python ]
