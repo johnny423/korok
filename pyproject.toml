@@ -21,6 +21,8 @@ black = "^24.3.0"
 ruff = "^0.3.3"
 pytest = "^8.1.1"
 pre-commit = "^3.6.2"
+uvicorn = "^0.29.0"
+mypy = "^1.9.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -52,3 +54,17 @@ relative-imports-order = "closest-to-furthest"
 extra-standard-library = ["typing"]
 section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
 known-first-party = []
+
+[tool.pytest.ini_options]
+addopts = "-vv -n auto --cov --cov-report xml --cov-report term-missing --cov-fail-under=100"
+asyncio_mode = "auto"
+testpaths = ["korok/tests"]
+
+[tool.coverage.run]
+concurrency = ["gevent"]
+omit = ["korok/tests/*"]
+source = ["korok"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true

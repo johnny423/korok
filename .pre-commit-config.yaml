@@ -12,16 +12,20 @@ repos:
       - id: poetry-lock
       - id: poetry-export
       - id: poetry-install
-
   - repo: local
     hooks:
       - id: black
         name: black
         entry: poetry run black
         language: system
-        types: [python]
+        types: [ python ]
       - id: ruff
         name: ruff
         entry: poetry run ruff . --fix
         language: system
-        types: [python]
+        types: [ python ]
+      - id: mypy
+        name: mypy
+        entry: poetry run mypy .
+        language: system
+        types: [ python ]
