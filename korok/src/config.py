@@ -1,19 +1,3 @@
-# File with environment variables and general configuration logic.
-# Env variables are combined in nested groups like "Security", "Database" etc.
-# So environment variable (case-insensitive) for jwt_secret_key will be "security__jwt_secret_key"
-#
-# Pydantic priority ordering:
-#
-# 1. (Most important, will overwrite everything) - environment variables
-# 2. `.env` file in root folder of project
-# 3. Default values
-#
-# "sqlalchemy_database_uri" is computed field that will create valid database URL
-#
-# See https://pydantic-docs.helpmanual.io/usage/settings/
-# Note, complex types like lists are read as json-encoded strings.
-
-
 from functools import lru_cache
 from pathlib import Path
 
@@ -21,7 +5,7 @@ from pydantic import AnyHttpUrl, BaseModel, SecretStr, computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.engine.url import URL
 
-PROJECT_DIR = Path(__file__).parent.parent.parent
+PROJECT_DIR = Path(__file__).parent.parent
 
 
 class Security(BaseModel):

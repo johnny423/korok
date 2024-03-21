@@ -13,16 +13,16 @@ repos:
     hooks:
       - id: black
         name: black
-        entry: poetry run black korok/src/
+        entry: poetry run black korok/src
         language: system
         types: [ python ]
       - id: ruff
         name: ruff
-        entry: poetry run ruff korok/src/ --fix
+        entry: poetry run ruff korok/src --fix
         language: system
         types: [ python ]
       - id: mypy
         name: mypy
-        entry: mypy korok/src/
+        entry: mypy korok/src
         language: system
         types: [ python ]

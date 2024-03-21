@@ -7,9 +7,9 @@ from korok.src.config import get_settings
 
 
 def initialize_backend_application():
-    app = fastapi.FastAPI(**settings.set_backend_app_attributes)  # type: ignore
+    fastapi_app = fastapi.FastAPI(**settings.set_backend_app_attributes)  # type: ignore
 
-    app.add_middleware(
+    fastapi_app.add_middleware(
         CORSMiddleware,
         allow_origins=[str(origin) for origin in get_settings().security.BACKEND_CORS_ORIGINS],
         allow_credentials=True,
@@ -17,12 +17,12 @@ def initialize_backend_application():
         allow_headers=["*"],
     )
 
-    app.add_middleware(
+    fastapi_app.add_middleware(
         TrustedHostMiddleware,
         allowed_hosts=get_settings().security.ALLOWED_HOSTS,
     )
 
-    return app
+    return fastapi_app
 
 
 backend_app: fastapi.FastAPI = initialize_backend_application()
