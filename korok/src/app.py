@@ -6,7 +6,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from korok.src.config import get_settings
 
 
-def initialize_backend_application() -> fastapi.FastAPI:
+def initialize_backend_application():
     app = fastapi.FastAPI(**settings.set_backend_app_attributes)  # type: ignore
 
     app.add_middleware(
