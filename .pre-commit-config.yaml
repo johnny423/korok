@@ -23,6 +23,8 @@ repos:
         types: [ python ]
       - id: mypy
         name: mypy
-        entry: mypy korok/src
-        language: system
+        entry: "./run-mypy"
+        language: python
         types: [ python ]
+        require_serial: true
+        verbose: true
