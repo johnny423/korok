@@ -1,7 +1,5 @@
 # Pull official latest Python Docker image (Pulished with version 3.11.0)
 FROM python:3.11-buster as builder
-
-# Set the working directory
 WORKDIR /app
 
 ENV POETRY_NO_INTERACTION=1 \
@@ -18,22 +16,17 @@ RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
 
 # The runtime image, used to just run the code provided its virtual environment
 FROM python:3.11-slim-buster as runtime
-
-#RUN apt-get update && apt-get install -y netcat-traditional
+WORKDIR /app
 
 # Set the server port
 EXPOSE 8000
 
 ENV VIRTUAL_ENV=/app/.venv \
-    PATH="/app/.venv/bin:$PATH"
+    PATH="/app/.venv/bin:$PATH" \
+    PYTHONPATH="${PYTHONPATH}:/app/korok"
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
-COPY ./korok /app/korok
-
-#RUN chmod +x /app/korok/entrypoint.sh
-#
-## Execute entrypoint.sh
-#ENTRYPOINT ["/app/korok/entrypoint.sh" ]
+COPY korok korok
 
 # Start up the backend server
-CMD uvicorn kork.src.main:backend_app --reload --workers 4 --host 0.0.0.0 --port 8000
+CMD uvicorn korok.src.main:backend_app  --reload --workers 4 --host 0.0.0.0 --port 8000

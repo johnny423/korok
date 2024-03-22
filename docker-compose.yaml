@@ -38,8 +38,7 @@ services:
   korok:
     container_name: korok
     restart: always
-    build:
-      dockerfile: ./korok/Dockerfile
+    image: korok
     expose:
       - 8000
     ports:

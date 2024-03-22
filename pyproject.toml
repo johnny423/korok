@@ -15,6 +15,7 @@ pydantic-settings = "^2.2.1"
 sqlalchemy = "^2.0.28"
 python-multipart = "^0.0.9"
 loguru = "^0.7.2"
+uvicorn = "^0.29.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,7 +23,6 @@ black = "^24.3.0"
 ruff = "^0.3.3"
 pytest = "^8.1.1"
 pre-commit = "^3.6.2"
-uvicorn = "^0.29.0"
 mypy = "^1.9.0"
 
 [build-system]

@@ -1,11 +1,10 @@
 .mypy_cache
 .pytest_cache
-__pycache__
 .coverage
 .gitignore
 *.md
 .dockerignore
-Dockerfile
-Dockerfile.prod
+*/__pycache__
+*/Dockerfile
 docker-compose.yaml
 korok/tests
