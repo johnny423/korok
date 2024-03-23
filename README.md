@@ -1,7 +1,7 @@
 requirements
 poetry and docker + docker compose
 
-install poetry
+install poetry 
 ```bash
 pip install poetry==1.8.2
 ```
