@@ -6,7 +6,7 @@ install poetry
 pip install poetry==1.8.2
 ```
 
-step the project
+set up the project
 ```bash
 poetry install
 pre-commit install
