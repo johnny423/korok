@@ -11,7 +11,7 @@ def parse_by_word_position(text: str) -> List[List[str]]:
     :param text: Input text, may contain multiple lines
     :return: A list of lines, each line is a list of separate words, no white spaces
     """
-    lines = text.split('\n')
+    lines = text.splitlines()
     return [split_line(line, ' ,.!?') for line in lines]
 
 
